@@ -1,0 +1,37 @@
+{
+  "name": "esusu-api",
+  "version": "1.0.0",
+  "description": "An api for an esusu group. As a test for a new role",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "node",
+    "test",
+    "api",
+    "rest"
+  ],
+  "author": "T-stark",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "dotenv": "^14.3.0",
+    "express": "^4.17.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-check-expiration": "^1.0.5",
+    "mongoose": "^6.1.8",
+    "nodemon": "^2.0.15",
+    "pino": "^7.6.4",
+    "pino-pretty": "^7.5.0",
+    "prettier": "^2.5.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0"
+  }
+}
