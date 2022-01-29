@@ -25,6 +25,7 @@
     "jsonwebtoken": "^8.5.1",
     "jwt-check-expiration": "^1.0.5",
     "mongoose": "^6.1.8",
+    "node-cron": "^3.0.0",
     "nodemon": "^2.0.15",
     "pino": "^7.6.4",
     "pino-pretty": "^7.5.0",

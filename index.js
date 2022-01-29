@@ -2,6 +2,7 @@ const app = require("./app");
 const logger = require("./config/logger");
 const db = require("./config/db");
 const {saveForAllGroups} = require("./utils/saveMoney");
+const cron = require("node-cron");
 
 const port = process.env.PORT;
 
@@ -16,12 +17,21 @@ const amt = process.env.WEEKLY_SAVE_AMT;
 
 // setTimeout((amt) => {
 //   try {
-//     if (saveForAllGroups(amt)) {
-//       logger.info("Saving cron job is complete for now!");
-//       return true;
-//     }
-//     return false;
+//     saveForAllGroups(amt)
+
+//     logger.info("Saving cron job is complete for now!");
 //   } catch (err) {
 //     throw new Error(err.message);
 //   }
-// }, 100);
+// }, 1000);
+
+cron.schedule('"*****"', () => {
+  try {
+    saveForAllGroups(amt);
+    // if(savedComplete) {
+    //   logger.info("Saving cron job is complete for now!");
+    // }
+  } catch (err) {
+    throw new Error(err.message);
+  }
+});
