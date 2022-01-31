@@ -19,12 +19,13 @@ if(process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 app.use(ErrorHandler)
-// app.use('/', (req, res) => {
-//     res.send('Welcome to the API');
-// })
+
+app.use('/', (req, res) => {
+    res.send('Welcome to T-STARK\'s Esusu platform 🚀 🚀 🚀 ');
+})
 
 app.use("/api/v1/", (req, res) => {
-    res.send("Welcome to T-STARK\'s Esusu platform💰💰💰💰") 
+    res.send("Welcome to T-STARK\'s Esusu platform💰💰💰💰 - THE API🚀 🚀 ");
 })
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/group", groupRoutes)
