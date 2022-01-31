@@ -23,6 +23,9 @@ app.use(ErrorHandler)
 //     res.send('Welcome to the API');
 // })
 
+app.use("api/v1/", (req, res) => {
+    res.send("Welcome to T-STARK\'s Esusu platform💰💰💰💰") 
+})
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/group", groupRoutes)
 
