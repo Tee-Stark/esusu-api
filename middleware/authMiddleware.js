@@ -32,7 +32,7 @@ exports.signinRequired = asyncHandler(async (req, res, next) => {
   if (!token) {
     return responseHandler(res, {
       status: 401,
-      message: "Token is missing or expired - Login required!",
+      message: "Authentication Token is missing or expired - Login required!",
       data: null,
     });
   }
