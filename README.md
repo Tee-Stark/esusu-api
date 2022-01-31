@@ -1,14 +1,14 @@
 # ESUSU-API
-An API for a cooperative society (Esusu) platform where members contribute money for a month and one person takes the total, until everyone has received.
+An API for a cooperative society (Esusu) platform where members contribute money for a month and one person takes the total, until everyone has received. Deployed to AWS Elastic BeanStalk @ [Esusu Platform 💰 💸 🥇](http://esusuapi-env.eba-i7dhafmm.us-east-2.elasticbeanstalk.com/)
 
 ### SUMMARY
 This platform comprises of major CRUD endpoints and other few endpoints required to perform operations on the platform. For the automation of the saving process for all groups and their members, a  cron job was implemented to run every weekend (Saturdays). Since there's no specific payment integration, the script just automatically increases the users' balance by NGN 1000.00 every week. When a new tenure request is made, a new list of receipients is generated in a random manner, such that whoever joins during the tenure, is automatically added to the bottom of the list. Every group has only one admin (who is the founder of the group).
 
 ### TECHNOLOGY USED
-* Node.js
-* Express.js
-* MongoDB
-* AWS Elastic Beanstalk
+* [Node.js](https://nodejs.org/)
+* [Express.js](http://expressjs.com)
+* [MongoDB](https://mongodb.com)
+* [AWS Elastic Beanstalk](www.aws.com)
 
 ### SETTING UP LOCALLY
 To setup locally, follow steps as stated below:
