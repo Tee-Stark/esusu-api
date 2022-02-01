@@ -30,13 +30,13 @@
     "jsonwebtoken": "^8.5.1",
     "jwt-check-expiration": "^1.0.5",
     "mongoose": "^6.1.8",
+    "morgan": "^1.10.0",
     "node-cron": "^3.0.0",
     "nodemon": "^2.0.15",
     "pino": "^7.6.4",
     "pino-pretty": "^7.5.0",
     "prettier": "^2.5.1",
-    "uuid": "^8.3.2",
-    "morgan": "^1.10.0"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/node-cron": "^3.0.1"
