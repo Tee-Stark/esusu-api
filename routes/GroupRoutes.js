@@ -7,6 +7,8 @@ const {
   GetAllGroups,
   AddNewMember,
   StartNewTenure,
+  InviteToGroup,
+  JoinGroup
 } = require("../controllers/GroupController");
 const { GetGroupMembers } = require("../controllers/UserController");
 const { signinRequired, adminOnly } = require("../middleware/authMiddleware");
@@ -31,5 +33,12 @@ Router.route("/:groupId/members")
   .post([signinRequired, adminOnly], AddNewMember)
   .get([signinRequired], GetGroupMembers)
   .delete([signinRequired, adminOnly], DeleteGroup);
+
+Router.route("/invite/:inviteId")
+  .post([signinRequired, adminOnly], InviteToGroup)
+
+Router.route("/join/:inviteId")
+  .post(JoinGroup);
+
 
 module.exports = Router;

@@ -69,8 +69,7 @@ exports.AddToGroup = async (userId, groupId) => {
     )
       .populate({
         path: "members",
-        select: "name _id",
-        receipientAdded,
+        select: "name _id"
       })
       .exec();
     await UserModel.findByIdAndUpdate(userId, { group: groupId });

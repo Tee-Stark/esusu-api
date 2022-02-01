@@ -7,7 +7,9 @@ const {
   GenerateRecipients,
   ClearReceipientList,
   GetGroupById,
+  InviteToGroup,
 } = require("../services/GroupServices");
+const { v4 } = require("uuid");
 const asyncHandler = require("express-async-handler");
 const { responseHandler } = require("../utils/responseHandler");
 const { makeAdmin } = require("../utils/makeAdmin");
@@ -21,6 +23,7 @@ exports.CreateNewGroup = asyncHandler(async (req, res, next) => {
     const newGroup = await CreateGroup({
       groupName,
       admin,
+      inviteId: v4()
     });
     if (newGroup) {
       await AddToGroup(admin, newGroup._id);
@@ -183,11 +186,42 @@ exports.InviteToGroup = asyncHandler(async (req, res, next) => {
         data: null,
       });
     }
-    const invited = await inviteToGroup(inviteId, userId);
+    const inviteLink = `${process.env.DEV_BASE_URL}/api/v1/group/join/${inviteId}?userId=${userId}`;
+    // const invited = await inviteToGroup(inviteId, userId);
+    // if (invited) {
+    return responseHandler(res, {
+      status: 200,
+      message: "Successfully invited user to group!",
+      data: {
+        invitationLink: inviteLink,
+      },
+    });
+    // }
+  } catch (err) {
+    return responseHandler(res, {
+      status: 500,
+      message: err.message,
+      data: null,
+    });
+  }
+});
+
+exports.JoinGroup = asyncHandler(async (req, res, next) => {
+  try {
+    const { inviteId } = req.params;
+    const { userId } = req.query;
+    if (!userId) {
+      return responseHandler(res, {
+        status: 400,
+        message: "User Id is required!",
+        data: null,
+      });
+    }
+    const invited = await InviteToGroup(inviteId, userId);
     if (invited) {
       return responseHandler(res, {
         status: 200,
-        message: "Successfully invited user to group!",
+        message: "Successfully Joined group!",
         data: invited,
       });
     }
