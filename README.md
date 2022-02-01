@@ -23,7 +23,14 @@ To setup locally, follow steps as stated below:
 > Note: You can choose to run both above commannds one after the other, to avoid the use of the && operator.
 
 * Create a .env file with your preferred values for the variables in the envsample file
-
+* It also makes sense to change `BASE_URL` to `DEV_BASE_URL` on line 189 of the `GroupController.js` controller file -
+ ```
+ const inviteLink = `${process.env.BASE_URL}/api/v1/group/join/${inviteId}?userId=${userId}`;
+ ```
+  should be changed to
+ ```
+ const inviteLink = `${process.env.DEV_BASE_URL}/api/v1/group/join/${inviteId}?userId=${userId}`;
+```
 * To start server in development mode - 
 ` yarn dev`
 
@@ -31,3 +38,6 @@ To setup locally, follow steps as stated below:
 ` yarn start`
 
 If all of the above was done correctly, the server should start running in your terminal.
+
+### MAKING REQUESTS
+The API docs can be found here - [Esusu API docs](https://documenter.getpostman.com/view/15116113/UVeDsmuF)
