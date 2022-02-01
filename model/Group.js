@@ -1,5 +1,4 @@
 const { Schema, model } = require("mongoose");
-const { v4 } = require("uuid");
 
 const GroupSchema = new Schema(
   {
@@ -12,7 +11,9 @@ const GroupSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    inviteId: String,
+    inviteId: {
+      type: String
+    },
     members: [
       {
         type: Schema.Types.ObjectId,
@@ -31,12 +32,12 @@ const GroupSchema = new Schema(
   }
 );
 
-GroupSchema.pre("save", (next) => {
-  if (!this.inviteId) {
-    this.inviteId = v4();
-  }
-  next();
-});
+// GroupSchema.pre("save", (next) => {
+//   if (!this.inviteId) {
+//     this.inviteId = v4();
+//   }
+//   next();
+// });
 
 const group = model("Group", GroupSchema);
 module.exports = group;
