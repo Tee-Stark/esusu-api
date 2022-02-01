@@ -1,0 +1,17 @@
+PORT=your_preferred_port
+
+MONGO_URI=mongodb://localhost:27017/exampleDb
+
+NODE_ENV=development
+
+ESUSU_JWT_SECRET=SomethingSecretGoesHere
+
+ESUSU_TOKEN_EXPIRY=your_preferred_token_validity_period
+
+WEEKLY_SAVE_AMT=your_preferred_amount
+
+# in case you wanna do stuff with the original domain
+BASE_URL=http://esusuapi-env.eba-i7dhafmm.us-east-2.elasticbeanstalk.com
+
+# for dev environment and stuff
+DEV_BASE_URL=your_localhost_maybe
