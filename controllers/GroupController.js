@@ -186,7 +186,10 @@ exports.InviteToGroup = asyncHandler(async (req, res, next) => {
         data: null,
       });
     }
-    const inviteLink = `${process.env.BASE_URL}/api/v1/group/join/${inviteId}?userId=${userId}`;
+    const env = process.env.NODE_ENV;
+    const base = process.env.BASE_URL
+    const dev = process.env.DEV_BASE_URL
+    const inviteLink = `${env === 'development'? dev : base}/api/v1/group/join/${inviteId}?userId=${userId}`;
     // const invited = await inviteToGroup(inviteId, userId);
     // if (invited) {
     return responseHandler(res, {
